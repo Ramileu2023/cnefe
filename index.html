@@ -40,6 +40,17 @@
         var highlightLayer;
         function highlightFeature(e) {
             highlightLayer = e.target;
+
+            if (e.target.feature.geometry.type === 'LineString' || e.target.feature.geometry.type === 'MultiLineString') {
+              highlightLayer.setStyle({
+                color: '#aa00ff',
+              });
+            } else {
+              highlightLayer.setStyle({
+                fillColor: '#aa00ff',
+                fillOpacity: 1
+              });
+            }
             highlightLayer.openPopup();
         }
         var map = L.map('map', {
@@ -101,6 +112,11 @@
         function pop_GURUPISsetoresPNAD_1(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -193,6 +209,20 @@
         });
         bounds_group.addLayer(layer_GURUPISsetoresPNAD_1);
         map.addLayer(layer_GURUPISsetoresPNAD_1);
+        var baseMaps = {};
+        var overlaysTree = [
+            {label: '<img src="legend/GURUPISsetoresPNAD_1.png" /> GURUPI:: Ssetores::PNAD', layer: layer_GURUPISsetoresPNAD_1},
+            {label: "OSM Standard", layer: layer_OSMStandard_0},]
+        var lay = L.control.layers.tree(null, overlaysTree,{
+            //namedToggle: true,
+            //selectorBack: false,
+            //closedSymbol: '&#8862; &#x1f5c0;',
+            //openedSymbol: '&#8863; &#x1f5c1;',
+            //collapseAll: 'Collapse all',
+            //expandAll: 'Expand all',
+            collapsed: false, 
+        });
+        lay.addTo(map);
         setBounds();
         </script>
     </body>
