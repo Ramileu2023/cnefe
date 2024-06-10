@@ -35,7 +35,7 @@
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
         <script src="js/leaflet-measure.js"></script>
-        <script src="data/GURUPISsetoresPNAD_1.js"></script>
+        <script src="data/GURUPIsetoresPNAD_1.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -55,7 +55,7 @@
         }
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[-11.727919263895489,-49.08039410905597],[-11.649817192645498,-48.93119289199815]]);
+        }).fitBounds([[-11.727919263895489,-49.20992391402134],[-11.649817192645484,-48.80166308703294]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -109,7 +109,7 @@
         });
         layer_OSMStandard_0;
         map.addLayer(layer_OSMStandard_0);
-        function pop_GURUPISsetoresPNAD_1(feature, layer) {
+        function pop_GURUPIsetoresPNAD_1(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -180,9 +180,9 @@
             popup.setContent(updatedContent);
         }
 
-        function style_GURUPISsetoresPNAD_1_0() {
+        function style_GURUPIsetoresPNAD_1_0() {
             return {
-                pane: 'pane_GURUPISsetoresPNAD_1',
+                pane: 'pane_GURUPIsetoresPNAD_1',
                 opacity: 1,
                 color: 'rgba(227,26,28,1.0)',
                 dashArray: '',
@@ -195,23 +195,23 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_GURUPISsetoresPNAD_1');
-        map.getPane('pane_GURUPISsetoresPNAD_1').style.zIndex = 401;
-        map.getPane('pane_GURUPISsetoresPNAD_1').style['mix-blend-mode'] = 'normal';
-        var layer_GURUPISsetoresPNAD_1 = new L.geoJson(json_GURUPISsetoresPNAD_1, {
+        map.createPane('pane_GURUPIsetoresPNAD_1');
+        map.getPane('pane_GURUPIsetoresPNAD_1').style.zIndex = 401;
+        map.getPane('pane_GURUPIsetoresPNAD_1').style['mix-blend-mode'] = 'normal';
+        var layer_GURUPIsetoresPNAD_1 = new L.geoJson(json_GURUPIsetoresPNAD_1, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_GURUPISsetoresPNAD_1',
-            layerName: 'layer_GURUPISsetoresPNAD_1',
-            pane: 'pane_GURUPISsetoresPNAD_1',
-            onEachFeature: pop_GURUPISsetoresPNAD_1,
-            style: style_GURUPISsetoresPNAD_1_0,
+            dataVar: 'json_GURUPIsetoresPNAD_1',
+            layerName: 'layer_GURUPIsetoresPNAD_1',
+            pane: 'pane_GURUPIsetoresPNAD_1',
+            onEachFeature: pop_GURUPIsetoresPNAD_1,
+            style: style_GURUPIsetoresPNAD_1_0,
         });
-        bounds_group.addLayer(layer_GURUPISsetoresPNAD_1);
-        map.addLayer(layer_GURUPISsetoresPNAD_1);
+        bounds_group.addLayer(layer_GURUPIsetoresPNAD_1);
+        map.addLayer(layer_GURUPIsetoresPNAD_1);
         var baseMaps = {};
         var overlaysTree = [
-            {label: '<img src="legend/GURUPISsetoresPNAD_1.png" /> GURUPI:: Ssetores::PNAD', layer: layer_GURUPISsetoresPNAD_1},
+            {label: '<img src="legend/GURUPIsetoresPNAD_1.png" /> GURUPI:: setores::PNAD', layer: layer_GURUPIsetoresPNAD_1},
             {label: "OSM Standard", layer: layer_OSMStandard_0},]
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
